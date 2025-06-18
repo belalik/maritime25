@@ -21,9 +21,23 @@
             max-width: 900px;
             width: 100%;
         }
+        /* New Logo Bar Styling */
+        .logo-bar {
+            display: flex;
+            justify-content: space-between; /* Pushes logos to the edges */
+            align-items: center;           /* Vertically aligns them */
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #005f73;
+        }
+        .logo {
+            max-height: 130px; /* Controls the max height of the logos */
+            width: auto;       /* Ensures aspect ratio is maintained */
+        }
+        /* End of New Logo Bar Styling */
+
         header {
             text-align: center;
-            border-bottom: 2px solid #005f73;
             padding-bottom: 1rem;
             margin-bottom: 2rem;
         }
@@ -70,7 +84,7 @@
         .card .description {
             font-size: 1rem;
             line-height: 1.6;
-            flex-grow: 1; /* Pushes the button to the bottom */
+            flex-grow: 1;
         }
         .card .button-link {
             display: block;
@@ -97,6 +111,10 @@
 </head>
 <body>
     <div class="container">
+        <div class="logo-bar">
+            <img src="eit-logo.png" alt="EIT Logo" class="logo">
+            <img src="sm_logo_small.png" alt="SM Logo" class="logo">
+        </div>
         <header>
             <h1>Maritime Informatics & Robotics</h1>
             <p>Summer School Workshop Notes (2025)</p>
