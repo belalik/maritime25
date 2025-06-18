@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maritime Informatics & Robotics - Workshop Notes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #005f73;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #003440;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #005f73;
+            margin-top: 0.5rem;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 1.5rem 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            color: #003440;
+            margin-top: 0;
+        }
+        .card .presenters {
+            font-size: 0.9rem;
+            color: #555;
+            font-style: italic;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        .card .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            flex-grow: 1; /* Pushes the button to the bottom */
+        }
+        .card .button-link {
+            display: block;
+            text-align: center;
+            background-color: #007791;
+            color: #ffffff;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        .card .button-link:hover {
+            background-color: #005f73;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maritime Informatics & Robotics</h1>
+            <p>Summer School Workshop Notes (2025)</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Lab03: Software In The Loop (SITL) & Auto Modes</h2>
+                <p class="presenters">Thomas Kogias, Nikos Sapountzis, Nikos Goulas</p>
+                <p class="description">Notes and resources for the hands-on lab covering Software-In-The-Loop simulation with drone autopilots and exploring automated flight modes.</p>
+                <a href="https://rebrand.ly/maritime25-lab03" class="button-link" target="_blank" rel="noopener noreferrer">View Lab 03 Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Lab04: Companion Computer (Rpi 5) – Autopilot Integration</h2>
+                <p class="presenters">Thomas Kogias, Nikos Sapountzis</p>
+                <p class="description">Notes and resources for the lab on integrating a Raspberry Pi 5 companion computer with a flight controller for advanced onboard processing.</p>
+                <a href="https://rebrand.ly/maritime25-lab04" class="button-link" target="_blank" rel="noopener noreferrer">View Lab 04 Notes</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Led by Thomas Kogias & Colleagues</p>
+        </footer>
+    </div>
+</body>
+</html>
