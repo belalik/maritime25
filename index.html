@@ -64,7 +64,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             padding: 1.5rem 2rem;
             width: calc(50% - 1rem);
-            /* MODIFIED: Adjusted max-width as requested */
             max-width: 450px;
             box-sizing: border-box;
             display: flex;
@@ -138,9 +137,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            /* MODIFIED: Let card grow to fill space */
             flex: 1;
-            max-width: 380px; /* New safeguard max-width */
+            max-width: 380px;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
@@ -150,7 +148,6 @@
         }
 
         .instructor-photo {
-            /* MODIFIED: Enlarged the photo */
             width: 150px;
             height: 150px;
             border-radius: 50%;
@@ -189,13 +186,15 @@
             margin-top: 0;
             padding-top: 0;
             box-sizing: border-box;
-            padding-bottom: 1.5rem; 
+            /* padding-bottom is now only applied when active */
         }
 
         .instructor-card.active .instructor-bio {
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #e0e0e0;
+            /* MOVED HERE: This adds breathing room only when expanded */
+            padding-bottom: 1.5rem; 
         }
         
     </style>
