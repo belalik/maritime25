@@ -189,6 +189,7 @@
             margin-top: 0;
             padding-top: 0;
             box-sizing: border-box;
+            padding-bottom: 1.5rem; 
         }
 
         /* This class will be toggled by JavaScript */
@@ -288,20 +289,19 @@
 
         instructorCards.forEach(card => {
             card.addEventListener('click', function() {
-                // Find the bio element within the card that was clicked
                 const bio = this.querySelector('.instructor-bio');
 
-                // Toggle the 'active' class on the card itself
+                // First, toggle the 'active' class on the card.
+                // This immediately applies the CSS styles like padding and border.
                 this.classList.toggle('active');
 
-                // Check if the card is now 'active' (meaning the bio should be open)
+                // Now, check if the card is active.
                 if (this.classList.contains('active')) {
-                    // If it's open, set its max-height to its actual scrollable height
-                    // This makes it expand to the perfect size to fit the content
+                    // Since the .active class is applied, scrollHeight now correctly
+                    // includes the content height PLUS the top and bottom padding.
                     bio.style.maxHeight = bio.scrollHeight + 'px';
                 } else {
-                    // If it's not active (meaning the bio should be closed),
-                    // remove the explicit max-height to let it collapse via CSS
+                    // If the class was removed, collapse the bio.
                     bio.style.maxHeight = null;
                 }
             });
