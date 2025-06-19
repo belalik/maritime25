@@ -196,7 +196,30 @@
             /* MOVED HERE: This adds breathing room only when expanded */
             padding-bottom: 1.5rem; 
         }
-        
+
+        /* --- Responsive Styles for Mobile --- */
+@media (max-width: 768px) {
+    body {
+        /* Reduce padding on mobile to give content more space */
+        padding: 1rem;
+    }
+
+    header h1 {
+        /* Make the main title smaller on mobile */
+        font-size: 2rem;
+    }
+
+    .card {
+        /* Make lab cards full-width to stack them in a single column */
+        width: 100%;
+        max-width: 100%; /* Override the desktop max-width for mobile */
+    }
+
+    .section-title {
+        /* Make the "Instructors" title a bit smaller */
+        font-size: 1.8rem;
+    }
+}
     </style>
 </head>
 <body>
