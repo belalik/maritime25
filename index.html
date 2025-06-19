@@ -8,7 +8,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
-
         body {
             font-family: 'Play', sans-serif;
             background-color: #f4f7f6;
@@ -34,7 +33,7 @@
         }
         .logo {
             max-height: 130px; /* Controls the max height of the logos */
-            width: auto;       /* Ensures aspect ratio is maintained */
+            width: auto;      /* Ensures aspect ratio is maintained */
         }
         /* End of New Logo Bar Styling */
 
@@ -64,7 +63,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             padding: 1.5rem 2rem;
-            width: 100%;
+            /* MODIFIED: This creates the 2-column layout by accounting for the 'gap' */
+            width: calc(50% - 1rem); 
             max-width: 400px;
             box-sizing: border-box;
             display: flex;
@@ -74,6 +74,8 @@
             font-size: 1.4rem;
             color: #003440;
             margin-top: 0;
+            /* ADDED: Ensures titles take up same space, aligning content below them */
+            min-height: 4.5rem;
         }
         .card .presenters {
             font-size: 0.9rem;
@@ -86,6 +88,7 @@
         .card .description {
             font-size: 1rem;
             line-height: 1.6;
+            /* This makes the description fill empty space, pushing the button to the bottom */
             flex-grow: 1;
         }
         .card .button-link {
@@ -123,20 +126,19 @@
         </header>
 
         <main>
+            <div class="card">
+                <h2>Lab01: Ardupilot software installation (Rover firmware), mission planner, configuration, setup, logging</h2>
+                <p class="presenters">Nikos Goulas, Nikos Sapountzis, Thomas Kogias</p>
+                <p class="description">An introduction to the ArduPilot ecosystem. This lab covers the initial software installation, Mission Planner setup, vehicle configuration, and understanding log files.</p>
+                <a href="#" class="button-link">View Lab 01 Notes</a>
+            </div>
 
             <div class="card">
-                <h2>Lab01: Ardupilot software installation (Rover firmware), mission planner, configuration, setup, logging</h2>
-                <p class="presenters">Nikos Goulas, Nikos Sapountzis, Thomas Kogias</p>
-                <p class="description">An introduction to the ArduPilot ecosystem. This lab covers the initial software installation, Mission Planner setup, vehicle configuration, and understanding log files.</p>
-                <a href="#" class="button-link">View Lab 01 Notes</a>
-            </div>
-
-            <div class="card">
-                <h2>Lab02: RC Setup, Parameter Tuning & Mode Configuration</h2>
-                <p class="presenters">Nikos Sapountzis, Nikos Goulas, Thomas Kogias</p>
-                <p class="description">This lab focuses on the critical steps of radio control (RC) calibration, essential parameter tuning for stable operation, and configuring different flight/drive modes.</p>
-                <a href="#" class="button-link">View Lab 02 Notes</a>
-            </div>
+                <h2>Lab02: RC Setup, Parameter Tuning & Mode Configuration</h2>
+                <p class="presenters">Nikos Sapountzis, Nikos Goulas, Thomas Kogias</p>
+                <p class="description">This lab focuses on the critical steps of radio control (RC) calibration, essential parameter tuning for stable operation, and configuring different flight/drive modes.</p>
+                <a href="#" class="button-link">View Lab 02 Notes</a>
+            </div>
             
             <div class="card">
                 <h2>Lab03: Software In The Loop (SITL) & Auto Modes</h2>
