@@ -303,6 +303,7 @@
     </div>
 
     <script>
+        // Definitive script to handle expandable bios, preventing race conditions.
         document.addEventListener('DOMContentLoaded', function() {
             const instructorCards = document.querySelectorAll('.instructor-card');
 
@@ -310,11 +311,19 @@
                 card.addEventListener('click', function() {
                     const bio = this.querySelector('.instructor-bio');
 
+                    // First, toggle the 'active' class on the card.
                     this.classList.toggle('active');
 
+                    // Check if the card is now active (i.e., the bio should be open)
                     if (this.classList.contains('active')) {
-                        bio.style.maxHeight = bio.scrollHeight + 'px';
+                        // Use requestAnimationFrame to wait for the browser to apply the new
+                        // styles (like padding) before we measure the element's height.
+                        // This prevents the script from getting an old height value.
+                        requestAnimationFrame(() => {
+                            bio.style.maxHeight = bio.scrollHeight + 'px';
+                        });
                     } else {
+                        // If the class was removed, collapse the bio by removing the explicit height.
                         bio.style.maxHeight = null;
                     }
                 });
