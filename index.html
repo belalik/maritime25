@@ -193,8 +193,8 @@
 
         /* This class will be toggled by JavaScript */
         .instructor-card.active .instructor-bio {
-            /* Sets the height to reveal the content */
-            max-height: 200px; /* Adjust if bio text is longer */
+            
+            /* max-height is js controlled */
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #e0e0e0;
@@ -282,18 +282,32 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const instructorCards = document.querySelectorAll('.instructor-card');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const instructorCards = document.querySelectorAll('.instructor-card');
 
-            instructorCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // This toggles the 'active' class on the card that was clicked
-                    this.classList.toggle('active');
-                });
+        instructorCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Find the bio element within the card that was clicked
+                const bio = this.querySelector('.instructor-bio');
+
+                // Toggle the 'active' class on the card itself
+                this.classList.toggle('active');
+
+                // Check if the card is now 'active' (meaning the bio should be open)
+                if (this.classList.contains('active')) {
+                    // If it's open, set its max-height to its actual scrollable height
+                    // This makes it expand to the perfect size to fit the content
+                    bio.style.maxHeight = bio.scrollHeight + 'px';
+                } else {
+                    // If it's not active (meaning the bio should be closed),
+                    // remove the explicit max-height to let it collapse via CSS
+                    bio.style.maxHeight = null;
+                }
             });
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
