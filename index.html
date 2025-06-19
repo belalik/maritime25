@@ -63,7 +63,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             padding: 1.5rem 2rem;
-            /* MODIFIED: This creates the 2-column layout by accounting for the 'gap' */
             width: calc(50% - 1rem); 
             max-width: 400px;
             box-sizing: border-box;
@@ -74,7 +73,6 @@
             font-size: 1.4rem;
             color: #003440;
             margin-top: 0;
-            /* ADDED: Ensures titles take up same space, aligning content below them */
             min-height: 4.5rem;
         }
         .card .presenters {
@@ -88,7 +86,6 @@
         .card .description {
             font-size: 1rem;
             line-height: 1.6;
-            /* This makes the description fill empty space, pushing the button to the bottom */
             flex-grow: 1;
         }
         .card .button-link {
@@ -114,61 +111,94 @@
         }
 
         /* --- Instructor Section Styles --- */
-.instructors-section {
-    width: 100%;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 2px solid #e0e0e0; /* Subtle separator line */
-}
+        .instructors-section {
+            width: 100%;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0; 
+        }
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #003440;
-    margin-bottom: 2.5rem;
-}
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #003440;
+            margin-bottom: 2.5rem;
+        }
 
-.instructors-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
+        .instructors-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
 
-.instructor-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 200px; /* Ensures cards don't get too wide */
-}
+        .instructor-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 200px; 
+            /* ADDED: Makes card interactive */
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-.instructor-photo {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Prevents image from stretching */
-    border: 3px solid #007791; /* Matches button color */
-    margin-bottom: 1rem;
-}
+        .instructor-card:hover {
+            /* ADDED: Subtle hover effect */
+            transform: translateY(-5px);
+        }
 
-.instructor-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #003440;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
+        .instructor-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007791;
+            margin-bottom: 1rem;
+        }
 
-.instructor-email {
-    font-size: 1rem;
-    color: #005f73;
-    text-decoration: none;
-}
+        .instructor-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #003440;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
 
-.instructor-email:hover {
-    text-decoration: underline;
-}
+        .instructor-email {
+            font-size: 1rem;
+            color: #005f73;
+            text-decoration: none;
+        }
+
+        .instructor-email:hover {
+            text-decoration: underline;
+        }
+
+        /* ADDED: New styles for the expandable bio */
+        .instructor-bio {
+            width: 100%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333;
+            text-align: left;
+            /* Hides the bio by default and prepares for animation */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, margin-top 0.4s ease-out, padding-top 0.4s ease-out;
+            margin-top: 0;
+            padding-top: 0;
+            box-sizing: border-box;
+        }
+
+        /* This class will be toggled by JavaScript */
+        .instructor-card.active .instructor-bio {
+            /* Sets the height to reveal the content */
+            max-height: 200px; /* Adjust if bio text is longer */
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
         
     </style>
 </head>
@@ -214,33 +244,56 @@
         </main>
 
         <section class="instructors-section">
-    <h2 class="section-title">Meet the Instructors</h2>
-    <div class="instructors-container">
-        
-        <div class="instructor-card">
-            <img src="goulas.webp" alt="Photo of Nikos Goulas" class="instructor-photo">
-            <h3 class="instructor-name">Nikos Goulas</h3>
-            <a href="mailto:ngoulas@aegean.gr" class="instructor-email">ngoulas@aegean.gr</a>
-        </div>
+            <h2 class="section-title">Meet the Instructors</h2>
+            <div class="instructors-container">
+                
+                <div class="instructor-card">
+                    <img src="goulas.webp" alt="Photo of Nikos Goulas" class="instructor-photo">
+                    <h3 class="instructor-name">Nikos Goulas</h3>
+                    <a href="mailto:ngoulas@aegean.gr" class="instructor-email">ngoulas@aegean.gr</a>
+                    <div class="instructor-bio">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    </div>
+                </div>
 
-        <div class="instructor-card">
-            <img src="kogias.webp" alt="Photo of Thomas Kogias" class="instructor-photo">
-            <h3 class="instructor-name">Thomas Kogias</h3>
-            <a href="mailto:tkogias@aegean.gr" class="instructor-email">tkogias@aegean.gr</a>
-        </div>
+                <div class="instructor-card">
+                    <img src="kogias.webp" alt="Photo of Thomas Kogias" class="instructor-photo">
+                    <h3 class="instructor-name">Thomas Kogias</h3>
+                    <a href="mailto:tkogias@aegean.gr" class="instructor-email">tkogias@aegean.gr</a>
+                    <div class="instructor-bio">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    </div>
+                </div>
 
-        <div class="instructor-card">
-            <img src="sapountzis.jpg" alt="Photo of Nikos Sapountzis" class="instructor-photo">
-            <h3 class="instructor-name">Nikos Sapountzis</h3>
-            <a href="mailto:nsapountzis@aegean.gr" class="instructor-email">nsapountzis@aegean.gr</a>
-        </div>
+                <div class="instructor-card">
+                    <img src="sapountzis.jpg" alt="Photo of Nikos Sapountzis" class="instructor-photo">
+                    <h3 class="instructor-name">Nikos Sapountzis</h3>
+                    <a href="mailto:nsapountzis@aegean.gr" class="instructor-email">nsapountzis@aegean.gr</a>
+                    <div class="instructor-bio">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    </div>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
 
         <footer>
             <p>SmartMove Lab - University of the Aegean</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const instructorCards = document.querySelectorAll('.instructor-card');
+
+            instructorCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // This toggles the 'active' class on the card that was clicked
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
